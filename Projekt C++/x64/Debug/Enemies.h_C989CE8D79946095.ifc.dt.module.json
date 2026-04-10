@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Projekt C++\\x64\\Debug\\Enemies.obj",
+            "outputs": [
+                "Projekt C++\\x64\\Debug\\Enemies.h_C989CE8D79946095.ifc.dt.module.json",
+                "Projekt C++\\x64\\Debug\\Enemies.h_C989CE8D79946095.ifc.dt.d.json",
+                "Projekt C++\\x64\\Debug\\Enemies.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Users\\qirox\\source\\repos\\Projekt C++\\Enemies.h",
+                    "source-path": "c:\\users\\qirox\\source\\repos\\projekt c++\\enemies.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

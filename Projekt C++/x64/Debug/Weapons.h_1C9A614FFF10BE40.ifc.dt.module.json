@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Projekt C++\\x64\\Debug\\Weapons.obj",
+            "outputs": [
+                "Projekt C++\\x64\\Debug\\Weapons.h_1C9A614FFF10BE40.ifc.dt.module.json",
+                "Projekt C++\\x64\\Debug\\Weapons.h_1C9A614FFF10BE40.ifc.dt.d.json",
+                "Projekt C++\\x64\\Debug\\Weapons.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Users\\qirox\\source\\repos\\Projekt C++\\Weapons.h",
+                    "source-path": "c:\\users\\qirox\\source\\repos\\projekt c++\\weapons.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

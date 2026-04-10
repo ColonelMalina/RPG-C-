@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Projekt C++\\x64\\Debug\\Hero.obj",
+            "outputs": [
+                "Projekt C++\\x64\\Debug\\Hero.h_5989424B1F7ABF07.ifc.dt.module.json",
+                "Projekt C++\\x64\\Debug\\Hero.h_5989424B1F7ABF07.ifc.dt.d.json",
+                "Projekt C++\\x64\\Debug\\Hero.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Users\\qirox\\source\\repos\\Projekt C++\\Hero.h",
+                    "source-path": "c:\\users\\qirox\\source\\repos\\projekt c++\\hero.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
