@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Projekt C++\\x64\\Debug\\Weapons.h.obj",
+            "outputs": [
+                "C:\\Users\\qirox\\source\\repos\\Projekt C++\\Projekt C++\\x64\\Debug\\vc145.pdb",
+                "Projekt C++\\x64\\Debug\\",
+                "C:\\Users\\qirox\\source\\repos\\Projekt C++\\Projekt C++\\x64\\Debug\\Weapons.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "Weapons.h",
+                    "source-path": "c:\\users\\qirox\\source\\repos\\projekt c++\\weapons.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

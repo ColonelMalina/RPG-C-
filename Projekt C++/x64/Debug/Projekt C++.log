@@ -1,0 +1,6 @@
+﻿  Hledají se závislosti modulů ve zdrojích...
+  Projekt C++.cpp
+C:\Users\qirox\source\repos\Projekt C++\Hero.h(30,13): warning C4244: argument: time_t se převádí na unsigned int; může dojít ke ztrátě dat.
+  (kompilování zdrojového souboru Projekt%20C++.cpp)
+  
+  Projekt C++.vcxproj -> C:\Users\qirox\source\repos\Projekt C++\x64\Debug\Projekt C++.exe
