@@ -17,3 +17,6 @@ public:
         return minDamage + (rand() % (int)(range + 1));
     }
 };
+Weapon Dagger();
+Weapon SteelSword();
+Weapon OrcAxe();

@@ -42,9 +42,9 @@ public:
 
 class Orc : public Enemies {
 public:
-    Orc() : Enemies("Orc", 60, 13, 31) {}
+    Orc() : Enemies("Orc", 60, 13, 25) {}
 };
 class Orc2 : public Enemies {
 public:
-    Orc2() : Enemies("Shaman Orc", 40, 25, 40) {}
+    Orc2() : Enemies("Shaman Orc", 40, 25, 35) {}
 };
