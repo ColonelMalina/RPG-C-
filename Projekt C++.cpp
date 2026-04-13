@@ -46,15 +46,117 @@ int main() {
         std::cout << "\nYou hesitated too long. A rock fell on your head. You died.\n";
         return 0;
     }
-
-    if (player.isAlive()) {
-        
-    
-    }
-    else {
+    if (!player.isAlive()) {
         std::cout << "\n--- GAME OVER ---\n";
+        return 0;
     }
 
+    int path2;
+    std::cin >> path2;
+
+    switch (path2) {
+    case 1:
+        (player);
+        break;
+    case 2:
+        (player);
+        break;
+    case 3:
+        (player);
+        break;
+    default:
+        std::cout << "";
+        return 0;
+    }
+    if (!player.isAlive()) {
+        std::cout << "\n--- GAME OVER ---\n";
+        return 0;
+    }
+    int path3;
+    std::cin >> path3;
+
+    switch (path3) {
+    case 1:
+        (player);
+        break;
+    case 2:
+        (player);
+        break;
+    case 3:
+        (player);
+        break;
+    default:
+        std::cout << "";
+        return 0;
+    }
+    if (!player.isAlive()) {
+        std::cout << "\n--- GAME OVER ---\n";
+        return 0;
+    }
+    int path4;
+    std::cin >> path4;
+
+    switch (path4) {
+    case 1:
+        (player);
+        break;
+    case 2:
+        (player);
+        break;
+    case 3:
+        (player);
+        break;
+    default:
+        std::cout << "";
+        return 0;
+    }
+    if (!player.isAlive()) {
+        std::cout << "\n--- GAME OVER ---\n";
+        return 0;
+    }
+    int path5;
+    std::cin >> path5;
+
+    switch (path5) {
+    case 1:
+        (player);
+        break;
+    case 2:
+        (player);
+        break;
+    case 3:
+        (player);
+        break;
+    default:
+        std::cout << "";
+        return 0;
+    } 
+    if (!player.isAlive()) {
+        std::cout << "\n--- GAME OVER ---\n";
+        return 0;
+    }
+    int path6;
+    std::cin >> path6;
+
+    switch (path6) {
+    case 1:
+        ;
+        break;
+    case 2:
+        
+        break;
+    case 3:
+        
+        break;
+    default:
+        std::cout << "";
+        return 0;
+    }
+    if (!player.isAlive()) {
+        std::cout << "\n--- GAME OVER ---\n";
+        return 0;
+    }
+    std::cout << "\n--- YOU BEAT THE DUNGEON! ---\n";
     return 0;
 }
    

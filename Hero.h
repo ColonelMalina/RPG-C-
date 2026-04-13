@@ -29,6 +29,11 @@ public:
 	void Attack(Enemies& target) {
 		double hit = currentW.getPower();
 
+		int roll = rand() % 100; 
+		if (roll < currentW.critChance) {
+			hit *= 1.5;
+			std::cout << "\n\033[41m\033[97m *** CRITICAL HIT! *** \033[0m\n";
+		}
 		std::vector<std::string> attackMessages = {
 		Name + " swings their " + currentW.Wname + " with pure rage!",
 		Name + " lunges forward, striking with the " + currentW.Wname + ".",
@@ -40,23 +45,45 @@ public:
 
 		std::cout << attackMessages[randomIndex] << std::endl;
 		target.takeDamage(hit);
+
+		if (currentW.dotTurns > 0) {
+			target.applyDot(currentW.dotDamage, currentW.dotTurns);
+		}
 	}
-	double minS = 10;
-	double maxS = 20;
-	double sManaCost = 6;
+	double minF = 10;
+	double maxF = 20;
+	double fManaCost = 6;
 	int fireballLevel = 1;
 
 	void Fireball(Enemies& target) {
-		if (Mana < sManaCost) {
-			std::cout << "Not enough Mana! Need " << sManaCost << std::endl;
+		if (Mana < fManaCost) {
+			std::cout << "Not enough Mana! Need " << fManaCost << std::endl;
 			return;
 		}
-		double range = maxS - minS;
-		double actualCast = minS + (rand() % (int)(range + 1));
+		double range = maxF - minF;
+		double actualCast = minF + (rand() % (int)(range + 1));
 
-		Mana -= sManaCost;
+		Mana -= fManaCost;
 		std::cout << "You used Fireball Lvl " << fireballLevel << "!" << std::endl;
 		std::cout << Name << " casts Fireball towards enemy for " << actualCast << ". (Mana: " << Mana << ")" << std::endl;
+		target.takeDamage(actualCast);
+	}
+	double minI = 7;
+	double maxI = 15;
+	double iManaCost = 5;
+	int icespikeLevel = 1;
+
+	void Icespike(Enemies& target) {
+		if (Mana < fManaCost) {
+			std::cout << "Not enough Mana! Need " << fManaCost << std::endl;
+			return;
+		}
+		double range = maxF - minF;
+		double actualCast = minF + (rand() % (int)(range + 1));
+
+		Mana -= fManaCost;
+		std::cout << "You used Icespike Lvl " << icespikeLevel << "!" << std::endl;
+		std::cout << Name << " casts Icespike towards enemy for " << actualCast << ". (Mana: " << Mana << ")" << std::endl;
 		target.takeDamage(actualCast);
 	}
 	double minH = 5.0;
@@ -92,14 +119,22 @@ public:
 	}
 	void upgradeFireball() {
 		healLevel++;
-		minS += 4;
-		maxS += 9;
-		sManaCost += 3;
+		minF += 4;
+		maxF += 9;
+		fManaCost += 3;
 		std::cout << "Fireball upgraded to Level " << fireballLevel << "!" << std::endl;
-		std::cout << "New range: " << minS << " - " << maxS << "." << std::endl;
+		std::cout << "New range: " << minF << " - " << maxF << "." << std::endl;
 	}
-	bool unlockedFireball = false; 
-
+	void upgradeIce() {
+		healLevel++;
+		minI+= 3;
+		maxI += 7;
+		iManaCost += 2;
+		std::cout << "Icespike upgraded to Level " << icespikeLevel << "!" << std::endl;
+		std::cout << "New range: " << minI << " - " << maxI << "." << std::endl;
+	}
+	bool unlockedFireball = false;
+	
 	void learnFireball() {
 		unlockedFireball = true;
 		std::cout << "\n*** " << Name << " learned a new spell: FIREBALL (Level 1)! ***\n";
@@ -107,6 +142,16 @@ public:
 	}
 	bool hasFireball() {
 		return unlockedFireball;
+	}
+	bool unlockedIce = false;
+
+	void learnIce() {
+		unlockedIce = true;
+		std::cout << "\n*** " << Name << " learned a new spell: ICESPIKE (Level 1)! ***\n";
+		std::cout << "\n                  BASE DAMAGE: 8 - 15                         \n";
+	}
+	bool hasIce() {
+		return unlockedIce;
 	}
 	void regainMana() {
 		Mana = maxMana;
