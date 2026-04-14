@@ -11,6 +11,7 @@ protected:
     double maxD;
     double activeDotDamage = 0;
     int activeDotTurns = 0;
+    int frozenTurns = 0;
 
 public:
     Enemies(std::string n, double h, double min, double max ) : Name(n), Health(h), minD(min), maxD(max) {}
@@ -33,7 +34,7 @@ public:
         if (turns > 0) {
             activeDotDamage = dotDmg;
             activeDotTurns = turns;
-            std::cout << "" << Name << " is poisoned/bleeding! " << std::endl; 
+            std::cout << "" << Name << " is on fire/bleeding! " << std::endl; 
         }
     }
     void takeDotDamage() {
@@ -43,6 +44,18 @@ public:
             if (Health < 0) Health = 0;
             activeDotTurns--;
         }
+    }
+    void freeze(int turns) {
+        frozenTurns = turns;
+        std::cout << "\033[36m" << Name << " is FROZEN solid!\033[0m" << std::endl;
+    }
+
+    bool isFrozen() {
+        if (frozenTurns > 0) {
+            frozenTurns--;
+            return true;
+        }
+        return false;
     }
     bool isAlive() { return Health > 0; }
     std::string getName() { return Name; }
@@ -93,7 +106,7 @@ public: Orc() : Enemies("Orc", 60, 13, 31) {}
 
 // ================= FLOOR 4: Demonic Corruption =================
 class Orc2 : public Enemies {
-public: Orc2() : Enemies("Shaman Orc", 40, 25, 40) {}
+public: Orc2() : Enemies("Demonic Warlock", 40, 25, 40) {}
 };
 
 class BloodFiend : public Enemies {
