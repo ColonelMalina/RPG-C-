@@ -1,10 +1,8 @@
 #include "Weapons.h"
 
-// Tady tvoříš konkrétní zbraně
 Weapon Dagger() {
-    return Weapon("Rusty Dagger", 5, 8, 0, 0, 5);
+    return Weapon("Rusty Dagger", 9, 13, 0, 0, 5);
 }
-
 Weapon SteelSword() {
     return Weapon("Steel Sword", 12, 18, 0, 0, 8); 
 }

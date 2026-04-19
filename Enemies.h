@@ -82,7 +82,9 @@ public: RabidBear() : Enemies("Rabid Bear", 45, 5, 10) {}
 class Goblin : public Enemies { 
 public: Goblin() : Enemies("Goblin", 30, 8, 12) {}
 };
-
+class ShamGob : public Enemies {
+public : ShamGob() : Enemies("Fire Goblin", 20, 13, 20) {}
+};
 class ChasmHarpy : public Enemies { 
 public: ChasmHarpy() : Enemies("Chasm Harpy", 38, 7, 13) {}
 };
@@ -123,7 +125,7 @@ public: Hellhound() : Enemies("Hellhound", 100, 22, 35) {}
 };
 
 class DreadKnight : public Enemies { // --- NOVÉ ---
-public: DreadKnight() : Enemies("Dread Knight", 120, 24, 38) {} 
+public: DreadKnight() : Enemies("Dread Knight", 120, 22, 32) {} 
 };
 
 class ObsidianGargoyle : public Enemies {
@@ -132,5 +134,5 @@ public: ObsidianGargoyle() : Enemies("Obsidian Gargoyle", 140, 20, 30) {}
 
 // ================= FLOOR 6: FINAL BOSS =================
 class DemonLord : public Enemies {
-public: DemonLord() : Enemies("Demon Lord Azazel", 250, 28, 50) {}
+public: DemonLord() : Enemies("Demon Lord Azazel", 300, 28, 35) {}
 };

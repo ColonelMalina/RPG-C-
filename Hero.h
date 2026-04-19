@@ -14,14 +14,17 @@ class Hero
 	double Mana;
 	double maxMana;
 	Weapon currentW;
+	double hPotion;
 
 public:
 
-	Hero(std::string n, double h, double m) : Name(n), health(h), maxHealth(h), maxMana(m), Mana(m) {}
+	Hero(std::string n, double h, double m, double p) : Name(n), health(h), maxHealth(h), maxMana(m), Mana(m), hPotion(p) {}
 	bool isAlive() { return health > 0; }
 	std::string getName() { return Name; }
 	double getMana() { return Mana; }
 	double getHealth() { return health; }
+	Weapon getCurrentWeapon() { return currentW; }
+	double gethPotion() { return hPotion; }
 	void EquipW(Weapon newWeapon) {
 		currentW = newWeapon;
 		std::cout << Name << " now wields " << currentW.Wname << "." << std::endl;
@@ -163,6 +166,25 @@ public:
 		std::cout << "New chance for critical heal: " << critChance << "%." << std::endl;
 	}
 
+	//HEALTH POTION
+
+	void addhPotion(double amount) {
+		hPotion += amount;
+		std::cout << "\033[32m You found a Health Potion!\033[0m\n";
+	}
+	void usehPotion() {
+		if (hPotion > 0) {
+			hPotion--;
+			health += 30; 
+
+			if (health > 100) {
+				health = 100;
+			}
+
+			std::cout << "\n\033[32m You drank a Health Potion! Recovered 30 HP.\033[0m\n";
+			std::cout << "Potions left: " << hPotion << "\n";
+		}
+	}
 
 	bool unlockedFireball = false;
 	
@@ -195,6 +217,10 @@ public:
 	void fullHeal() {
 		health = maxHealth;
 		std::cout << "You regained full health!" << std::endl;
+	}
+	void bandage(double amount) {
+		health += amount;
+		std::cout << "You bandaged yourself for " << amount << "." << std::endl;
 	}
 
 	void takeDamage(double amount) {

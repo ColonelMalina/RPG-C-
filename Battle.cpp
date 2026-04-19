@@ -12,19 +12,27 @@ bool startBattle(Hero& player, Enemies* monster) {
         do {
             std::cout << "\n--- Your Turn ---" << std::endl;
             std::cout << "1. Attack | 2. Heal |";
-            if (player.hasFireball()) std::cout << "3. Fireball |";
-            if (player.hasIce()) std::cout << " 4. Icespike";
+            if (player.hasFireball()) std::cout << " 3. Fireball |";
+            if (player.hasIce()) std::cout << " 4. Icespike |";
+            if (player.gethPotion() > 0) std::cout << " 9. Potion (" << player.gethPotion() << "x)";
 
-            std::cout << "Select action: ";
+            std::cout << "\nSelect action: ";
             int choice;
             std::cin >> choice;
-
-            if (choice == 1) {
+            if (choice == 9) {
+                if (player.gethPotion() > 0) {
+                    player.usehPotion();
+                }
+                else {
+                    std::cout << "You don't have any potions!" << std::endl;
+                }
+                continue;
+            }            else if (choice == 1) {
                 player.Attack(*monster);
                 turnOver = true;
             }
             else if (choice == 2) {
-                if (player.Heal()) turnOver = true; 
+                if (player.Heal()) turnOver = true;
             }
             else if (choice == 3 && player.hasFireball()) {
                 if (player.Fireball(*monster)) turnOver = true;
@@ -36,14 +44,14 @@ bool startBattle(Hero& player, Enemies* monster) {
                 std::cout << "Invalid choice or spell not learned!" << std::endl;
             }
 
-        } while (!turnOver); 
+        } while (!turnOver);
 
-     
+
         if (monster->isAlive()) {
-            monster->takeDotDamage(); 
+            monster->takeDotDamage();
 
             if (monster->isAlive()) {
-                if (monster->isFrozen()) { 
+                if (monster->isFrozen()) {
                     std::cout << monster->getName() << " is frozen and skips their turn!" << std::endl;
                 }
                 else {
@@ -68,6 +76,7 @@ bool startBattle(Hero& player, Enemies* monster) {
     return won;
 }
 
+
 bool startMultiBattle(Hero& player, std::vector<Enemies*> enemies) {
     while (player.isAlive() && !enemies.empty()) {
         bool turnOver = false;
@@ -79,13 +88,25 @@ bool startMultiBattle(Hero& player, std::vector<Enemies*> enemies) {
 
             std::cout << "\n--- Your Turn ---" << std::endl;
             std::cout << "1. Attack | 2. Heal |";
-            if (player.hasFireball()) std::cout << "3. Fireball |";
-            if (player.hasIce()) std::cout << " 4. Icespike";
-            std::cout << "Select action: ";
+            if (player.hasFireball()) std::cout << " 3. Fireball |";
+            if (player.hasIce()) std::cout << " 4. Icespike |";
+            if (player.gethPotion() > 0) std::cout << " 9. Potion (" << player.gethPotion() << "x)";
+
+            std::cout << "\nSelect action: ";
             int choice;
             std::cin >> choice;
 
-            if (choice == 2) {
+            if (choice == 9) {
+                if (player.gethPotion() > 0) {
+                    player.usehPotion();
+                }
+                else {
+                    std::cout << "You don't have any potions!" << std::endl;
+                }
+                continue; 
+            }
+
+            else if (choice == 2) {
                 if (player.Heal()) turnOver = true;
             }
             else if (choice >= 1 && choice <= 4) {
@@ -94,7 +115,7 @@ bool startMultiBattle(Hero& player, std::vector<Enemies*> enemies) {
                 std::cin >> targetIdx;
 
                 if (targetIdx > 0 && targetIdx <= enemies.size()) {
-                    targetIdx--; 
+                    targetIdx--;
                     if (choice == 1) { player.Attack(*enemies[targetIdx]); turnOver = true; }
                     else if (choice == 3 && player.hasFireball()) { if (player.Fireball(*enemies[targetIdx])) turnOver = true; }
                     else if (choice == 4 && player.hasIce()) { if (player.Icespike(*enemies[targetIdx])) turnOver = true; }
@@ -113,8 +134,8 @@ bool startMultiBattle(Hero& player, std::vector<Enemies*> enemies) {
         for (auto it = enemies.begin(); it != enemies.end(); ) {
             if (!(*it)->isAlive()) {
                 std::cout << (*it)->getName() << " has been defeated!" << std::endl;
-                delete* it; 
-                it = enemies.erase(it); 
+                delete* it;
+                it = enemies.erase(it);
             }
             else {
                 (*it)->takeDotDamage();

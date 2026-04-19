@@ -14,14 +14,16 @@ int main() {
     srand(static_cast<unsigned int>(time(0)));
 
     std::cout << "\n============================================\n";
-    std::cout << "       WELCOME TO THE CONSOLE LAND \n";
+    std::cout << "       WELCOME TO THE DESCEND TO THE ABBYS \n";
     std::cout << "============================================\n";
-
+    std::cout << "       WILL YOU FIND THE WAY TO THE END?\n";
+    std::cout << "       OR WILL YOU GET LOST AND DIE... \n";
+    std::cout << "============================================\n";
     std::string playerName;
     std::cout << "Enter your hero's name: ";
     std::getline(std::cin, playerName);
 
-    Hero player(playerName, 100, 30);
+    Hero player(playerName, 100, 30, 0);
     player.EquipW(Weapon());
 
     int currentFloor = 1;

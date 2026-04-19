@@ -12,13 +12,23 @@ public:
     int dotTurns;     
     int critChance;    
 
-    Weapon(std::string w = "Bare hands", double minD = 2, double maxD = 4, double dotD = 0, int dotT = 0, int critC = 2)
+    Weapon(std::string w = "Bare hands", double minD = 5, double maxD = 7, double dotD = 0, int dotT = 0, int critC = 2)
         : Wname(w), minDamage(minD), maxDamage(maxD), dotDamage(dotD), dotTurns(dotT), critChance(critC) {}
 
     double getPower() {
         double range = maxDamage - minDamage;
         return minDamage + (rand() % (int)(range + 1));
     }
+        double getWeaponScore() const {
+            double avgDmg = (minDamage + maxDamage) / 2.0;
+            double critBonus = avgDmg * (critChance / 100.0) * 0.5; 
+            double dotTotal = dotDamage * dotTurns;
+            return avgDmg + critBonus + dotTotal;
+        }
+
+        bool operator>(const Weapon & other) const {
+            return this->getWeaponScore() > other.getWeaponScore();
+        }
 };
 Weapon Dagger();
 Weapon SteelSword();
